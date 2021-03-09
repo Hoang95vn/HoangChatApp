@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+    
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@android:color/white"
+            android:theme="@style/ToolbarColoredBackArrow"
+            app:popupTheme="@style/AppTheme.PopupOverplay"
+            >
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_name"
+                android:text="Huy Hoàng"
+                android:textColor="@android:color/white"
+                android:layout_toLeftOf="@+id/img_avatar"
+                android:textSize="26sp"
+                android:layout_centerInParent="true"
+                android:layout_toStartOf="@+id/img_avatar" />
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/img_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+        </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:id="@+id/chat_layout"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_review"
+            android:visibility="gone"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_camera"
+            android:onClick="onCaptureImageClick"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/img_image"
+            android:onClick="onSelectImageClick"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_image_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_chat"
+            android:hint="@string/your_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            />
+
+        <ImageView
+            android:id="@+id/img_send"
+            android:layout_gravity="center_vertical"
+            android:src="@android:drawable/ic_menu_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSubmitChatClick"
+            />
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chat"
+        android:padding="8dp"
+        android:layout_above="@id/chat_layout"
+        android:layout_below="@id/toolbar_layout"
+        android:layout_marginTop="4dp"
+        app:stackFromEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+    
+</RelativeLayout>
